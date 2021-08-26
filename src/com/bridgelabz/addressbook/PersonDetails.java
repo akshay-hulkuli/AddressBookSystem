@@ -10,6 +10,8 @@ public class PersonDetails {
     private int pinCode;
     private String email;
     
+    
+    //setters
     public void setFirstName(String firstName) {
     	this.firstName = firstName;
     }
@@ -36,6 +38,8 @@ public class PersonDetails {
     }
     
     
+    
+    //getters
     public String getFirstName() {
     	return this.firstName;
     }
