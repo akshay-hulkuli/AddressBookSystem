@@ -1,10 +1,9 @@
 package com.bridgelabz.addressbook;
 
-import java.util.Scanner;
+import java.util.*;
 public class AddressBookSystem {
-	public static AddressBook[] addressBooks = new AddressBook[10];
-	public static String[] addressBookName = new String[10];
-	
+	public  AddressBook[] addressBooks = new AddressBook[10];
+	public  String[] addressBookName = new String[10];
 	
 	public boolean checkName(String name) {
 		for(int i=0;addressBooks[i]!=null;i++) {
@@ -52,6 +51,20 @@ public class AddressBookSystem {
 	public void searchByState(String state, String name) {
 		for(int i=0;addressBooks[i]!=null;i++) {
 			addressBooks[i].searchByState(state,name);
+		}
+	}
+	
+	public void personsInCity(String city) {
+		System.out.println("Persons in city: "+city);
+		for(int i=0;addressBooks[i]!= null; i++) {
+			addressBooks[i].personsInCity(city);
+		}
+	}
+	
+	public void personsInState(String State) {
+		System.out.println("Persons in state: "+State);
+		for(int i=0;addressBooks[i]!= null; i++) {
+			addressBooks[i].personsInState(State);
 		}
 	}
 }
