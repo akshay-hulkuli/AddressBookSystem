@@ -43,15 +43,15 @@ public class AddressBookSystem {
 		}
 	}
 	
-	public void searchByCity(String city) {
+	public void searchByCity(String city, String name) {
 		for(int i=0;addressBooks[i]!=null;i++) {
-			addressBooks[i].searchByCity(city);
+			addressBooks[i].searchByCity(city,name);
 		}
 	}
 	
-	public void searchByState(String state) {
+	public void searchByState(String state, String name) {
 		for(int i=0;addressBooks[i]!=null;i++) {
-			addressBooks[i].searchByState(state);
+			addressBooks[i].searchByState(state,name);
 		}
 	}
 }
