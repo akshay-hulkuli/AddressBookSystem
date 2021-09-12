@@ -47,11 +47,17 @@ public class AddressBookMain {
 					int option = sc.nextInt();
 					if(option == 1) {
 						System.out.println("enter city");
-						addressBookSystem.searchByCity(sc.next());
+						String city = sc.next();
+						System.out.println("enter firstName");
+						String firstName  = sc.next();
+						addressBookSystem.searchByCity(city,firstName);
 					}
 					else {
 						System.out.println("enter state");
-						addressBookSystem.searchByState(sc.next());
+						String state = sc.next();
+						System.out.println("enter firstName");
+						String firstName  = sc.next();
+						addressBookSystem.searchByState(state,firstName);
 					}
 					break;
 				default:
