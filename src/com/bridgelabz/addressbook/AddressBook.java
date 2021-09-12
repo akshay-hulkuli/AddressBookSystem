@@ -4,6 +4,8 @@ import java.util.*;
 
 public class AddressBook {
 	ArrayList<PersonDetails> referenceBook = new ArrayList<PersonDetails>();
+	public  HashMap<String, ArrayList<PersonDetails>> personsByCity = new HashMap<String, ArrayList<PersonDetails>>();
+	public  HashMap<String, ArrayList<PersonDetails>> personsByState = new HashMap<String, ArrayList<PersonDetails>>();
 	private int numOfContacts = 0;
 	
 	public void addPerson() {
@@ -14,13 +16,20 @@ public class AddressBook {
 			if(person.getFirstName().equals(referenceBook.get(i).getFirstName())) {
 				if(!person.equals(referenceBook.get(i))) {
 					referenceBook.add(person);
+					if(personsByCity.get(person.getCity()) == null) personsByCity.put(person.getCity(), new ArrayList<>());
+					personsByCity.get(person.getCity()).add(person);
+					if(personsByState.get(person.getState()) == null) personsByCity.put(person.getState(), new ArrayList<>());
+					personsByState.get(person.getState()).add(person);
 					return;
 				}
 				else System.out.println("Duplicate data entry. discarded");
 			}
 		}
 		referenceBook.add(person);
-		
+		if(personsByCity.get(person.getCity()) == null) personsByCity.put(person.getCity(), new ArrayList<>());
+		personsByCity.get(person.getCity()).add(person);
+		if(personsByState.get(person.getState()) == null) personsByState.put(person.getState(), new ArrayList<>());
+		personsByState.get(person.getState()).add(person);
 	}
 	
 	public void searchByCity(String city,String firstName) {
@@ -41,6 +50,22 @@ public class AddressBook {
 		}
 	}
 	
+	public void personsInCity(String city) {
+		ArrayList<PersonDetails> list = personsByCity.get(city);
+		for(int i=0; i< list.size();i++) {
+			output(list.get(i));
+			System.out.println();
+		}
+	}
+	
+	public void personsInState(String State) {
+		ArrayList<PersonDetails> list = personsByState.get(State);
+		
+		for(int i=0; i< list.size();i++) {
+			output(list.get(i));
+			System.out.println();
+		}
+	}
 	public void editPerson(String name) {
 		int i=0;
 		for(i=0;i<referenceBook.size();i++) {
