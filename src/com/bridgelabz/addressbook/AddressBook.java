@@ -110,19 +110,22 @@ public class AddressBook {
 		int i=0;
 		for(i=0;i<referenceBook.size();i++) {
 			if(referenceBook.get(i).getFirstName().equals(name)) {
-				break;
+				referenceBook.remove(i);
+				System.out.println("Deleted details of : "+ name);
+				return;
 			}
 		}
-		if(i==numOfContacts) {
-			System.out.println("Name not found");
-			return;
-		}
-		referenceBook.remove(i);
-		System.out.println("Deleted details of : "+ name);
+		System.out.println("Name not found");
+		
 	}
 	
-	
-	
+	public int countByCity(String city) {
+		
+		return (personsByCity.get(city)==null)?0:personsByCity.get(city).size();
+	}
+	public int countByState(String state) {
+		return personsByState.get(state)==null?0:personsByState.get(state).size();
+	}
 	
 	private static PersonDetails intake() {
 		Scanner sc = new Scanner(System.in);
