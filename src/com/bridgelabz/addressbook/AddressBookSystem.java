@@ -2,18 +2,18 @@ package com.bridgelabz.addressbook;
 
 import java.util.Scanner;
 public class AddressBookSystem {
-	private static AddressBook[] addressBooks = new AddressBook[10];
-	private static String[] addressBookName = new String[10];
-	private static int  numOfBooks =0;
+	public static AddressBook[] addressBooks = new AddressBook[10];
+	public static String[] addressBookName = new String[10];
 	
-	private boolean checkName(String name) {
+	
+	public boolean checkName(String name) {
 		for(int i=0;addressBooks[i]!=null;i++) {
 			if(addressBookName[i].equals(name)) return true;
 		}
 		return false;
 	}
 	
-	private static void addressMenu(AddressBook addressBook) {
+	public void addressMenu(AddressBook addressBook) {
 		Scanner sc = new Scanner(System.in);
 		int option = 0;
 		boolean exit = true;
@@ -42,50 +42,16 @@ public class AddressBookSystem {
 			System.out.println();
 		}
 	}
-	public static void main(String[] args) {
-		System.out.println("****** Welcome to address book program ! ******");
-		Scanner sc = new Scanner(System.in);
-		
-		AddressBook currentBook;
-		boolean exit1 = true;
-		while(exit1) {
-			System.out.println("Select option 1:Add address Book 2:open Address Book 3:exit");
-			switch(sc.nextInt()) {
-				case 1: 
-					System.out.println("Enter the address book name");
-					String name = sc.next();
-					currentBook  = new AddressBook();
-					addressBooks[numOfBooks] = currentBook;
-					addressBookName[numOfBooks] = name;
-					numOfBooks++;
-					break;
-				case 2:
-					System.out.println("The Address books available :");
-					for(int i=0;i<numOfBooks;i++) {
-						System.out.println(addressBookName[i]);
-					}
-					System.out.println("Enter the name");
-					String book = sc.next();
-					int i =0;
-					for(i=0;i<numOfBooks;i++) {
-						if(addressBookName[i].equals(book)) break;
-					}
-					if(i == numOfBooks) {
-						System.out.println("name Not Found");
-						break;
-					}
-					currentBook = addressBooks[i];
-					addressMenu(currentBook);
-					break;
-				default:
-					exit1 = false;
-			
-			}
+	
+	public void searchByCity(String city) {
+		for(int i=0;addressBooks[i]!=null;i++) {
+			addressBooks[i].searchByCity(city);
 		}
-		
-		
-		
-		sc.close();
-		
+	}
+	
+	public void searchByState(String state) {
+		for(int i=0;addressBooks[i]!=null;i++) {
+			addressBooks[i].searchByState(state);
+		}
 	}
 }
