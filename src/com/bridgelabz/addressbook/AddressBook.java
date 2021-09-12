@@ -23,6 +23,24 @@ public class AddressBook {
 		
 	}
 	
+	public void searchByCity(String city) {
+		for(int i=0;i<referenceBook.size();i++) {
+			if(city.equals(referenceBook.get(i).getCity())) {
+				output(referenceBook.get(i));
+				System.out.println();
+			}
+		}
+	}
+	
+	public void searchByState(String state) {
+		for(int i=0;i<referenceBook.size();i++) {
+			if(state.equals(referenceBook.get(i).getState())) {
+				output(referenceBook.get(i));
+				System.out.println();
+			}
+		}
+	}
+	
 	public void editPerson(String name) {
 		int i=0;
 		for(i=0;i<referenceBook.size();i++) {
@@ -105,14 +123,14 @@ public class AddressBook {
 	}
 	
 	private static void output(PersonDetails person) {
-		System.out.println("Enter firstName : "+person.getFirstName());
-		System.out.println("Enter SecondName : "+ person.getLastName());
-		System.out.println("Enter Address : "+ person.getAddress());
-		System.out.println("Enter City : "+person.getCity());
-		System.out.println("Enter State : "+person.getState());
-		System.out.println("Enter Pin code : "+person.getPinCode());
-		System.out.println("Enter Phone nmber : "+person.getPhoneNumber() );
-		System.out.println("Enter email : "+person.getEmail());
+		System.out.println("firstName : "+person.getFirstName());
+		System.out.println("SecondName : "+ person.getLastName());
+		System.out.println("Address : "+ person.getAddress());
+		System.out.println("City : "+person.getCity());
+		System.out.println("State : "+person.getState());
+		System.out.println("Pin code : "+person.getPinCode());
+		System.out.println("Phone nmber : "+person.getPhoneNumber() );
+		System.out.println("email : "+person.getEmail());
 	}
 	
 }
