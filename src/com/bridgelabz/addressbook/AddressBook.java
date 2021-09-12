@@ -23,18 +23,18 @@ public class AddressBook {
 		
 	}
 	
-	public void searchByCity(String city) {
+	public void searchByCity(String city,String firstName) {
 		for(int i=0;i<referenceBook.size();i++) {
-			if(city.equals(referenceBook.get(i).getCity())) {
+			if(city.equals(referenceBook.get(i).getCity()) && firstName.equals(referenceBook.get(i).getFirstName())) {
 				output(referenceBook.get(i));
 				System.out.println();
 			}
 		}
 	}
 	
-	public void searchByState(String state) {
+	public void searchByState(String state, String firstName) {
 		for(int i=0;i<referenceBook.size();i++) {
-			if(state.equals(referenceBook.get(i).getState())) {
+			if(state.equals(referenceBook.get(i).getState()) && firstName.equals(referenceBook.get(i).getFirstName())) {
 				output(referenceBook.get(i));
 				System.out.println();
 			}
