@@ -67,4 +67,19 @@ public class AddressBookSystem {
 			addressBooks[i].personsInState(State);
 		}
 	}
+	
+	public void countByCity(String city) {
+		int count =0;
+		for(int i=0;addressBooks[i] != null;i++) {
+			count+= addressBooks[i].countByCity(city);
+		}
+		System.out.println("the number person in city : "+city+" is : "+count);
+	}
+	public void countByState(String State) {
+		int count =0;
+		for(int i=0;addressBooks[i] != null;i++) {
+			count+= addressBooks[i].countByState(State);
+		}
+		System.out.println("the number person in city : "+State+" is : "+count);
+	}
 }
