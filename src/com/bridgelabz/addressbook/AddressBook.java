@@ -3,9 +3,9 @@ package com.bridgelabz.addressbook;
 import java.util.*; 
 
 public class AddressBook {
-	ArrayList<PersonDetails> referenceBook = new ArrayList<PersonDetails>();
-	public  HashMap<String, ArrayList<PersonDetails>> personsByCity = new HashMap<String, ArrayList<PersonDetails>>();
-	public  HashMap<String, ArrayList<PersonDetails>> personsByState = new HashMap<String, ArrayList<PersonDetails>>();
+	List<PersonDetails> referenceBook = new LinkedList<PersonDetails>();
+	public  HashMap<String, LinkedList<PersonDetails>> personsByCity = new HashMap<String, LinkedList<PersonDetails>>();
+	public  HashMap<String, LinkedList<PersonDetails>> personsByState = new HashMap<String, LinkedList<PersonDetails>>();
 	private int numOfContacts = 0;
 	
 	public void addPerson() {
@@ -16,9 +16,9 @@ public class AddressBook {
 			if(person.getFirstName().equals(referenceBook.get(i).getFirstName())) {
 				if(!person.equals(referenceBook.get(i))) {
 					referenceBook.add(person);
-					if(personsByCity.get(person.getCity()) == null) personsByCity.put(person.getCity(), new ArrayList<>());
+					if(personsByCity.get(person.getCity()) == null) personsByCity.put(person.getCity(), new LinkedList<>());
 					personsByCity.get(person.getCity()).add(person);
-					if(personsByState.get(person.getState()) == null) personsByCity.put(person.getState(), new ArrayList<>());
+					if(personsByState.get(person.getState()) == null) personsByCity.put(person.getState(), new LinkedList<>());
 					personsByState.get(person.getState()).add(person);
 					return;
 				}
@@ -26,9 +26,9 @@ public class AddressBook {
 			}
 		}
 		referenceBook.add(person);
-		if(personsByCity.get(person.getCity()) == null) personsByCity.put(person.getCity(), new ArrayList<>());
+		if(personsByCity.get(person.getCity()) == null) personsByCity.put(person.getCity(), new LinkedList<>());
 		personsByCity.get(person.getCity()).add(person);
-		if(personsByState.get(person.getState()) == null) personsByState.put(person.getState(), new ArrayList<>());
+		if(personsByState.get(person.getState()) == null) personsByState.put(person.getState(), new LinkedList<>());
 		personsByState.get(person.getState()).add(person);
 	}
 	
@@ -51,7 +51,7 @@ public class AddressBook {
 	}
 	
 	public void personsInCity(String city) {
-		ArrayList<PersonDetails> list = personsByCity.get(city);
+		LinkedList<PersonDetails> list = personsByCity.get(city);
 		for(int i=0; i< list.size();i++) {
 			output(list.get(i));
 			System.out.println();
@@ -59,7 +59,7 @@ public class AddressBook {
 	}
 	
 	public void personsInState(String State) {
-		ArrayList<PersonDetails> list = personsByState.get(State);
+		LinkedList<PersonDetails> list = personsByState.get(State);
 		
 		for(int i=0; i< list.size();i++) {
 			output(list.get(i));
