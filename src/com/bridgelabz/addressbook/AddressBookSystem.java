@@ -2,11 +2,11 @@ package com.bridgelabz.addressbook;
 
 import java.util.*;
 public class AddressBookSystem {
-	public  AddressBook[] addressBooks = new AddressBook[10];
+	public  List<AddressBook> addressBooks = new LinkedList<AddressBook>();
 	public  String[] addressBookName = new String[10];
 	
 	public boolean checkName(String name) {
-		for(int i=0;addressBooks[i]!=null;i++) {
+		for(int i=0;i<addressBooks.size();i++) {
 			if(addressBookName[i].equals(name)) return true;
 		}
 		return false;
@@ -43,42 +43,42 @@ public class AddressBookSystem {
 	}
 	
 	public void searchByCity(String city, String name) {
-		for(int i=0;addressBooks[i]!=null;i++) {
-			addressBooks[i].searchByCity(city,name);
+		for(int i=0;i<addressBooks.size();i++) {
+			addressBooks.get(i).searchByCity(city,name);
 		}
 	}
 	
 	public void searchByState(String state, String name) {
-		for(int i=0;addressBooks[i]!=null;i++) {
-			addressBooks[i].searchByState(state,name);
+		for(int i=0;i<addressBooks.size();i++) {
+			addressBooks.get(i).searchByState(state,name);
 		}
 	}
 	
 	public void personsInCity(String city) {
 		System.out.println("Persons in city: "+city);
-		for(int i=0;addressBooks[i]!= null; i++) {
-			addressBooks[i].personsInCity(city);
+		for(int i=0;i<addressBooks.size(); i++) {
+			addressBooks.get(i).personsInCity(city);
 		}
 	}
 	
 	public void personsInState(String State) {
 		System.out.println("Persons in state: "+State);
-		for(int i=0;addressBooks[i]!= null; i++) {
-			addressBooks[i].personsInState(State);
+		for(int i=0;i<addressBooks.size(); i++) {
+			addressBooks.get(i).personsInState(State);
 		}
 	}
 	
 	public void countByCity(String city) {
 		int count =0;
-		for(int i=0;addressBooks[i] != null;i++) {
-			count+= addressBooks[i].countByCity(city);
+		for(int i=0;i<addressBooks.size();i++) {
+			count+= addressBooks.get(i).countByCity(city);
 		}
 		System.out.println("the number person in city : "+city+" is : "+count);
 	}
 	public void countByState(String State) {
 		int count =0;
-		for(int i=0;addressBooks[i] != null;i++) {
-			count+= addressBooks[i].countByState(State);
+		for(int i=0;i<addressBooks.size();i++) {
+			count+= addressBooks.get(i).countByState(State);
 		}
 		System.out.println("the number person in city : "+State+" is : "+count);
 	}
