@@ -20,7 +20,7 @@ public class AddressBookMain {
 					System.out.println("Enter the address book name");
 					String name = sc.next();
 					currentBook  = new AddressBook();
-					addressBookSystem.addressBooks[numOfBooks] = currentBook;
+					addressBookSystem.addressBooks.add(currentBook);
 					addressBookSystem.addressBookName[numOfBooks] = name;
 					numOfBooks++;
 					break;
@@ -39,7 +39,7 @@ public class AddressBookMain {
 						System.out.println("name Not Found");
 						break;
 					}
-					currentBook = addressBookSystem.addressBooks[i];
+					currentBook = addressBookSystem.addressBooks.get(i);
 					addressBookSystem.addressMenu(currentBook);
 					break;
 				case 3:
